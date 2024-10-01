@@ -82,6 +82,7 @@ castComposer.chatType("supergroup").on("msg:text", async (ctx) => {
       });
     }
   }
+  return;
 });
 
 castComposer.chatType("supergroup").callbackQuery(
