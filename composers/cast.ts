@@ -37,7 +37,6 @@ castComposer.chatType("supergroup").command("list", async (ctx) => {
   );
 });
 
-const castIdGenerator = customAlphabet("1234567890", 16);
 export interface CastGroup {
   group: number;
   messageId: number;
@@ -62,7 +61,7 @@ castComposer.chatType("supergroup").on("msg:text", async (ctx) => {
     default: {
       await ctx.react("⚡");
       const groups = await listGroupsByCast(ctx.chat.id);
-      const castId = castIdGenerator();
+      const castId = nanoid();
       for (const group of groups) {
         if (typeof group != "number") continue;
         const value: CastGroup = {
