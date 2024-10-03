@@ -61,7 +61,7 @@ castComposer.chatType("supergroup").on("msg:text", async (ctx) => {
     default: {
       await ctx.react("⚡");
       const groups = await listGroupsByCast(ctx.chat.id);
-      const castId = nanoid();
+      const castId = crypto.randomUUID();
       for (const group of groups) {
         if (typeof group != "number") continue;
         const value: CastGroup = {
@@ -73,7 +73,7 @@ castComposer.chatType("supergroup").on("msg:text", async (ctx) => {
           ctx.chat.id,
           "list",
           castId,
-          nanoid(),
+          crypto.randomUUID(),
         ], value);
       }
       await ctx.reply("Рассылка отправлена!", {
