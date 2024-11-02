@@ -1,11 +1,10 @@
 {
-  "imports": {
-    "@std/dotenv": "jsr:@std/dotenv@^0.225.2",
-    "grammy": "npm:grammy@^1.30.0",
-    "nanoid": "npm:nanoid@^5.0.7"
-  },
+  "$schema": "https://raw.githubusercontent.com/denoland/deno/main/cli/schemas/config-file.v1.json",
   "tasks": {
     "start": "deno run -A --watch dev.ts"
+  },
+  "imports": {
+    "grammy": "https://deno.land/x/grammy@v1.30.0/mod.ts"
   },
   "unstable": ["kv"]
 }
