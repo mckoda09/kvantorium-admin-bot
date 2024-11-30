@@ -38,7 +38,10 @@ castComposer.chatType("supergroup").on("msg:text", async (c) => {
 
   const reply_markup = new InlineKeyboard();
   reply_markup.text("Удалить", `remove-${sentId}`);
-  await c.reply(`Рассылка завершена! Групп: ${success}`, { reply_markup });
+  await c.reply(
+    `Рассылка завершена! Успешно: ${success} Провалено: ${failed}`,
+    { reply_markup },
+  );
 });
 
 castComposer.chatType("supergroup").callbackQuery(/^remove-.*/, async (c) => {
